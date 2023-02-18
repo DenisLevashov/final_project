@@ -6,19 +6,35 @@
 using static System.Console;
 Clear();
 
-// string[] WorldArray = {"hello", "2", "world", ":-)", "123"};
-Write("Задайте любой массив из любых символов через пробел: ");
-string[] WorldArray = ReadLine()!.Split(" ", StringSplitOptions.RemoveEmptyEntries);
-string[] NewArray = new string[WorldArray.Length];
+WriteLine("Задайте массив через пробел:");
+string[] FirstArray = ReadLine()!.Split(" ", StringSplitOptions.RemoveEmptyEntries);
+string[] SecondArray = new string[FirstArray.Length - 1];
+WriteLine();
+PrintArray(FirstArray);
+WriteLine("===>");
+NewArray(FirstArray, SecondArray);
+PrintArray(SecondArray);
 
-
-for (int i = 0; i < WorldArray.Length; i++)
+void NewArray(string[] WorldArray, string[] SecondArray)
 {
-    if (WorldArray[i].Length > 3)
+    int count = 0;
+    for (int i = 0; i < WorldArray.Length; i++)
     {
-        WorldArray[i] = " ";
+        if (WorldArray[i].Length <= 3)
+        {
+            SecondArray[count] = WorldArray[i];
+            count++;
+        }
     }
-    Write(WorldArray[i] + " ");
+}
+void PrintArray(string[] InArray)
+{
+    Write("[");
+    for (int i = 0; i < InArray.Length - 1; i++)
+    {
+        Write($"{InArray[i]}, ");
+    }
+    WriteLine($"{InArray[InArray.Length - 1]}]");
 }
 
 
