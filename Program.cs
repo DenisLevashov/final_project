@@ -15,14 +15,14 @@ WriteLine("===>");
 NewArray(FirstArray, SecondArray);
 PrintArray(SecondArray);
 
-void NewArray(string[] WorldArray, string[] SecondArray)
+void NewArray(string[] OneArray, string[] TwoArray)
 {
     int count = 0;
-    for (int i = 0; i < WorldArray.Length; i++)
+    for (int i = 0; i < OneArray.Length; i++)
     {
-        if (WorldArray[i].Length <= 3)
+        if (OneArray[i].Length <= 3)
         {
-            SecondArray[count] = WorldArray[i];
+            TwoArray[count] = OneArray[i];
             count++;
         }
     }
